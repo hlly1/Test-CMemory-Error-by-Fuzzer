@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# setup environment variables for dimefox.eng.unimelb.edu.au
+#  and related servers
+
+LIBDIR="/silo-q04/users/t/tobiasm1/local/lib64"
+
+RHEL=$(cat /etc/issue | grep -F "Red Hat Enterprise Linux Server release 6.10 (Santiago)")
+
+if [ ! -z "${RHEL}" ]
+then
+    export LD_LIBRARY_PATH=$LIBDIR
+    export LDFLAGS=-L$LIBDIR
+fi
+    
